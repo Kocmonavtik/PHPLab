@@ -1,0 +1,109 @@
+/* montserrat-regular - latin */
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 400;
+  src: local(''),
+       url('../fonts/montserrat-v15-latin-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+       url('../fonts/montserrat-v15-latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+/* montserrat-500 - latin */
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 500;
+  src: local(''),
+       url('../fonts/montserrat-v15-latin-500.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+       url('../fonts/montserrat-v15-latin-500.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+/* montserrat-900 - latin */
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 900;
+  src: local(''),
+       url('../fonts/montserrat-v15-latin-900.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+       url('../fonts/montserrat-v15-latin-900.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+/* . Уменьшает саму картинку чтобы она не выходила за заданные пределы 200х100 когда используются падинги(расстояние между пикселями?)*/
+html{
+  box-sizing: border-box;
+}
+*, *::before, *::after{
+  box-sizing: inherit;
+}
+body{
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-size: 16px;
+    line-height: 1.2;
+    font-weight: normal;
+    color: #000000;
+}
+.wrapper{
+  max-width: 1060px;
+  text-align: center;
+  margin: 0 auto;
+}
+.header{
+    background-color: #C20000;/**/
+    position: fixed;/*это и ниже нужно для прявязки к верхней части экрана header(всегда был виден)*/
+    top: 0;/*позиция в верхней части*/
+    left: 0;/*позиция в левой части привязка*/
+    width: 100%;/*занимает 100% экрана*/
+}
+.header_text{
+    font-size: 22px;
+    line-height: 29px;
+    color: #000000;
+    text-decoration: none;
+}
+
+/* Основное окно*/
+
+.main{
+    height: 100vh;
+}
+.FeedbackBlock{
+    /*max-width: 203px;*/
+    margin: 0 auto;
+    padding-top: 50px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    text-align: center;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-size: 16px;
+    line-height: 1.2;
+    font-weight: normal;
+    color: #000000;
+
+}
+.WarningText{
+    font-size: 20px;
+    line-height: 20px;
+    color: red;
+    text-align: center;
+}
+.GreenText{
+    font-size: 20px;
+    line-height: 20px;
+    text-align: center;
+    color: green;
+}
+p{
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-size: 16px;
+    line-height: 1.2;
+    font-weight: normal;
+    color: #000000;
+}
+/*.item{
+  width: 200px;
+  height: 100px;
+  background-color: green;
+  padding: 20px;
+} ((Необходимо было для изучения работы))
+*/
