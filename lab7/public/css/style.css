@@ -1,0 +1,30 @@
+html{
+  box-sizing: border-box;
+}
+*, *::before, *::after{
+  box-sizing: inherit;
+}
+body{
+    font-family: 'Andale Mono';
+    font-style: normal;
+    font-size: 16px;
+    line-height: 1.2;
+    font-weight: normal;
+    color: #000000;
+}
+:lang
+
+p{
+    font-family: 'Andale Mono';
+    font-style: normal;
+    font-size: 16px;
+    line-height: 1;
+    font-weight: normal;
+    color: #000000;
+}
+a{
+    color: black;
+}
+.X20{
+    font-size: 20px;
+}

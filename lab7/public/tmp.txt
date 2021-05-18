@@ -1,0 +1,114 @@
+{{ form_row(registrationForm.email) }}
+            {{ form_row(registrationForm.plainPassword, {
+                label: 'Password'
+            }) }}
+            {{ form_row(registrationForm.agreeTerms) }}
+
+            <button type="submit" class="btn">Register</button>
+        {{ form_end(registrationForm) }}
+
+         {{ form_label(registrationForm.email, null,
+                            form_errors(registrationForm.email)|length ? { 'label_attr': {'class': 'text-danger'} } : {}) }}
+                        {{ form_widget(registrationForm.email, form_errors(registrationForm.email)|length
+                            ? {'attr': {'class': 'form-control is-invalid'}}
+                            : {'attr': {'class': 'form-control'}} ) }}
+                        <span class="text-danger ">{{ form_errors(registrationForm.email) }}</span>
+
+php bin/console doctrine:query:sql "SELECT * FROM book"
+symfony console make:crud
+ src/Controller/BookController.php
+ created: src/Form/BookType.php
+ created: templates/book/_delete_form.html.twig
+ created: templates/book/_form.html.twig
+ created: templates/book/edit.html.twig
+ created: templates/book/index.html.twig
+ created: templates/book/new.html.twig
+ created: templates/book/show.html.twig
+
+
+   {{ form_widget(form) }}
+    <button class="btn">{{ button_label|default('Save') }}</button>
+ <div class="form-group">
+        <label>Файл с книгой</label>
+        <div class="custom-file">
+            {{ form_widget(form.bookFile, {'attr': {'class': 'custom-file-input'}} ) }}
+            <label class="custom-file-label" for="customFile">Выбрать</label>
+        </div>
+        <span class="text-danger">{{ form_errors(form.bookFile) }}</span>
+    </div>
+
+
+      $fileNameBook=pathinfo($bookFile->getClientOriginalName(),PATHINFO_FILENAME);
+                    $safeBookName=$slugger->slug($fileNameBook);
+                    $newFileBook=$safeBookName.'-'.uniqid().'.'.$bookFile->guessExtension();
+
+                    try {
+                        $bookFile->move(
+                            $this->getParameter('books_directory'),
+                            $newFileBook
+                        );
+                    }catch (FileException $e){
+                        echo $e;
+                    }
+
+                     if($this->getUser() == null)
+                            {
+                                return new RedirectResponse($this->generateUrl('startpage'));
+                            }
+
+                            $book = new Book();
+                            $form = $this->createForm(BookType::class, $book);
+                            $form->handleRequest($request);
+
+                            if ($form->isSubmitted() && $form->isValid()) {
+                                $imageFile=$form->get('image')->getData();
+                                $bookFile=$form->get('bookFile')->getData();
+
+                                if($imageFile){
+                                   $imageName=$fileUploader->upload($imageFile,'images_directory');
+                                   $book->setImage($imageName);
+                                }
+
+                                if($bookFile){
+                                   $bookName=$fileUploader->upload($bookFile,'books_directory');
+                                   $book->setBookFile($bookName);
+                                }
+
+                                $entityManager = $this->getDoctrine()->getManager();
+                                $entityManager->persist($book);
+                                $entityManager->flush();
+
+                                return $this->redirectToRoute('book_index');
+                            }
+
+                            return $this->render('book/new.html.twig', [
+                                'book' => $book,
+                                'form' => $form->createView(),
+                            ]);
+
+
+
+ /*$fileNameImage=pathinfo($imageFile->getClientOriginalName(),PATHINFO_FILENAME);
+                $safeImageName=$slugger->slug($fileNameImage);
+                $newImageName=$safeImageName.'-'.uniqid().'.'.$imageFile->guessExtension();
+
+                try{
+                    $imageFile->move(
+                        $this->getParameter('images_directory'),
+                        $newImageName
+                    );
+                }catch (FileException $e){
+                    echo $e;
+                }*/
+ /*$fileNameBook=pathinfo($bookFile->getClientOriginalName(),PATHINFO_FILENAME);
+                $safeBookName=$slugger->slug($fileNameBook);
+                $newFileBook=$safeBookName.'-'.uniqid().'.'.$bookFile->guessExtension();
+
+                try {
+                    $bookFile->move(
+                        $this->getParameter('books_directory'),
+                        $newFileBook
+                    );
+                }catch (FileException $e){
+                    echo $e;
+                }*/
