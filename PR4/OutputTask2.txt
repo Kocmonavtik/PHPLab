@@ -1,5 +1,4 @@
-http://sozd.parlament.gov.ru/bill/774512694
-http://sozd.parlament.gov.ru/bill/77451354694
-http://sozd.parlament.gov.ru/bill/752772694
-http://sozd.parlament.gov.ru/bill/124243694
-http://sozd.parlament.gov.ru/bill/728643
+<p>http://sozd.parlament.gov.ru/bill/774512694</p>
+<a href="http://sozd.parlament.gov.ru/bill/77451354694">Ссылка</a>
+<label>http://sozd.parlament.gov.ru/bill/752772694<label>
+<a href="http://sozd.parlament.gov.ru/bill/124243694">Ссылка2</a>

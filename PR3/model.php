@@ -42,7 +42,7 @@ function SpamCheck ()
 {
     global $connection;
     global $dateNow;
-    $prepared=$connection->prepare('select datetime from pr3 where email=\''.$_POST['EmailBox'].'\' order by datetime desc limit 1');
+    $prepared=$connection->prepare('select datetime from pr3 where email=\''.$_POST['EmailBox'].'\' order by id desc limit 1');
     $result = $prepared->execute();
     if ($result) {
         $dateStringBD=$prepared->fetchColumn();
@@ -70,18 +70,18 @@ function SendMessage()
     $mail= new \PHPMailer\PHPMailer\PHPMailer(true);
     try {
         //Настройки почты
-        //$mail->SMTPDebug=\PHPMailer\PHPMailer\SMTP::DEBUG_SERVER; //Подробный вывод отладки
+        //$mail->SMTPDebug=\PHPMailer\PHPMailer\SMTP::DEBUG_SERVER;   //Подробный вывод отладки
         $mail->isSMTP();                                            //Отправление сообщения черещ SMTP
         $mail->Host = 'smtp.gmail.com';                             //Настройка SMTP для отправки
         $mail->SMTPAuth = true;                                     //Включение аутетнтификатора SMTP
-        $mail->Username = 'YourMailToSend@gmail.com';               //SMTP имя пользователя
-        $mail->Password = 'Password';                               //SMTP пароль
+        $mail->Username = 'kocmonavtik1412@gmail.com';              //SMTP имя пользователя
+        $mail->Password = 'Cheburaska88';                           //SMTP пароль
         $mail->SMTPSecure = \PHPMailer\PHPMailer\PHPMailer::ENCRYPTION_STARTTLS;    //Включение шифрования
         $mail->Port = 587;                                          //TCP  порт для подключения
 
         //Получатель сообщения
-        $mail->setFrom('YourMailToSend@gmail.com', 'Name');                     //Адрес почты и имя отправителя
-        $mail->addAddress("MailToReceive@example.com ", "$_POST[NameBox]");     //Добавление получателя сообщения.Имя не обязательно
+        $mail->setFrom('kocmonavtik1412@gmail.com', 'Newsletter');//Адрес почты и имя отправителя
+        $mail->addAddress("chapligin141299@gmail.com", "$_POST[NameBox]");     //Добавление получателя сообщения.Имя не обязательно
 
         /*Вложения
         $mail->addAttachment('/var/tmp/file.tar.gz');         //Добавления вложений
@@ -106,10 +106,7 @@ function SendMessage()
             $prepared = $connection->prepare('insert into pr3 (name, surname, patronymic, email, phoneNumber, dateTime)
                 values(\''.$_POST['NameBox'].'\', \''.$_POST['SurnameBox'].'\',
                 \''.$_POST['PatronymicBox'].'\',\''.$_POST['EmailBox'].'\', \''.$_POST['PhoneBox'].'\', \''.$dateString.'\')');
-            $result = $prepared->execute();
-            if ($result) {
-                //сюда вставить то что снизу.
-            }
+            $prepared->execute();
         } catch (Exception $e) {
             return $e;
         }
