@@ -81,7 +81,7 @@ function SendMessage()
 
         //Получатель сообщения
         $mail->setFrom('myemail@gmail.com', 'Newsletter');//Адрес почты и имя отправителя
-        $mail->addAddress("chapligin141299@gmail.com", "$_POST[NameBox]");     //Добавление получателя сообщения.Имя не обязательно
+        $mail->addAddress("myworkemail@gmail.com", "$_POST[NameBox]");     //Добавление получателя сообщения.Имя не обязательно
 
         /*Вложения
         $mail->addAttachment('/var/tmp/file.tar.gz');         //Добавления вложений
