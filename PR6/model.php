@@ -1,7 +1,7 @@
 <?php
 if(isset($_POST['InputAddress'])) {
     $parameters = array(
-        'apikey' => '25083547-8492-410e-b0aa-14a972b1198b',
+        'apikey' => 'apiKey',
         'geocode' => $_POST['InputAddress'],//$_POST['InputAddress'], # Самара,улица+22+Партсъезда,+15
         'format' => 'json'
     );
