@@ -36,26 +36,4 @@ class AboutController extends AbstractController
             'user' => $user,
         ]);
     }
-
-
-
-
-
-
-        ///homepage/{name} name="homepage"
-        //$greet='';
-        //if($name){
-        //   $greet=sprintf('<h1>Hello %s!</h1>', htmlspecialchars($name));
-        //}
-        //return $this->render('about/index.html.twig', [
-       //     'controller_name' => 'AboutController',
-       // ]);
-        /*return new Response(<<<EOF
-<html>
-    <body>
-        <img src="/images/under-construction.gif" />
-    </body>
-</html>
-EOF
-        );*/
 }
