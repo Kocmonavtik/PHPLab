@@ -74,14 +74,14 @@ function SendMessage()
         $mail->isSMTP();                                            //Отправление сообщения черещ SMTP
         $mail->Host = 'smtp.gmail.com';                             //Настройка SMTP для отправки
         $mail->SMTPAuth = true;                                     //Включение аутетнтификатора SMTP
-        $mail->Username = 'kocmonavtik1412@gmail.com';              //SMTP имя пользователя
-        $mail->Password = 'Cheburaska88';                           //SMTP пароль
+        $mail->Username = 'myemail@gmail.com';              //SMTP имя пользователя
+        $mail->Password = 'password';                           //SMTP пароль
         $mail->SMTPSecure = \PHPMailer\PHPMailer\PHPMailer::ENCRYPTION_STARTTLS;    //Включение шифрования
         $mail->Port = 587;                                          //TCP  порт для подключения
 
         //Получатель сообщения
-        $mail->setFrom('kocmonavtik1412@gmail.com', 'Newsletter');//Адрес почты и имя отправителя
-        $mail->addAddress("chapligin141299@gmail.com", "$_POST[NameBox]");     //Добавление получателя сообщения.Имя не обязательно
+        $mail->setFrom('myemail@gmail.com', 'Newsletter');//Адрес почты и имя отправителя
+        $mail->addAddress("myworkemail@gmail.com", "$_POST[NameBox]");     //Добавление получателя сообщения.Имя не обязательно
 
         /*Вложения
         $mail->addAttachment('/var/tmp/file.tar.gz');         //Добавления вложений
